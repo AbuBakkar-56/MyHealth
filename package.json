@@ -1,0 +1,30 @@
+{
+  "name": "myhealth-final-v",
+  "version": "1.0.0",
+  "description": "final year project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abu Bakkar",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "bcrypt": "^5.1.1",
+    "bootstrap": "^5.3.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.6.1",
+    "mongoose": "^8.3.5",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.14",
+    "nodemon": "^3.1.0",
+    "pug": "^3.0.2",
+    "sendgrid": "^5.2.3",
+    "sharp": "^0.33.4",
+    "stripe": "^15.12.0"
+  }
+}
