@@ -1,0 +1,31 @@
+extends base
+block content
+  .d-flex.flex-column.align-items-center(min-height="100vh")
+    .card(style="width: 30rem; margin-bottom: 1rem;")
+      .card-body
+        h5.card-title.text-center Update Settings
+        form#Update__Form
+          .mb-3
+            label.form-label(for="name") Name
+            input#name_update_field.form-control(type="text" placeholder=`${user.name}` required)
+          .mb-3
+            label.form-label(for="email") Email
+            input#email_update_field.form-control(type="email" placeholder=`${user.email}` required)
+          .d-grid
+            button.btn.btn-primary(type="submit") Save 
+
+    .card(style="width: 30rem;")
+      .card-body
+        h5.card-title.text-center Update Password
+        form#Password__Update__Form
+          .mb-3
+            label.form-label(for="currentPassword") Current Password
+            input#current_password_field.form-control(type="password" placeholder="Current Password" required)
+          .mb-3
+            label.form-label(for="newPassword") New Password
+            input#new_password_field.form-control(type="password" placeholder="New Password" required)
+          .mb-3
+            label.form-label(for="confirmPassword") Confirm New Password
+            input#confirm_password_field.form-control(type="password" placeholder="Confirm New Password" required)
+          .d-grid
+            button.btn.btn-primary(type="submit") Save

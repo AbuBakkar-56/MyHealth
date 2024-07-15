@@ -1,0 +1,25 @@
+extends base
+block content
+  .d-flex
+    include partials/admin/sidebar
+    .container.mt-5.flex-grow-1
+      h1 Add Medicine
+      
+      .card
+        .card-header
+          h2 Medicine Details
+        .card-body
+          form#formAddMedicine(method="post")
+            .form-group
+              label(for="medicineName") Medicine Name
+              input#medicineName.form-control(type="text" name="name" required)
+            .form-group
+              label(for="medicineDescription") Description
+              textarea#medicineDescription.form-control(name="description" required)
+            .form-group
+              label(for="medicineDeliveryTime") Delivery Time
+              input#medicineDeliveryTime.form-control(type="text" name="deliveryTime" required)
+            .form-group
+              label(for="medicinePrice") Price
+              input#medicinePrice.form-control(type="number" name="price" required)
+            button.btn.btn-primary(type="submit") Add Medicine

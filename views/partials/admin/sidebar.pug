@@ -1,0 +1,11 @@
+.col-md-3.col-lg-2.d-md-block.bg-light.sidebar
+  h4.text-white.bg-dark.p-2.mt-0 Admin Dashboard
+  ul.nav.flex-column
+    li.nav-item.mb-4
+      a.nav-link(class=(currentPage === "/managedoctor" ? "active" : ""), href="/managedoctor") Manage Doctors
+    li.nav-item.mb-4
+      a.nav-link(class=(currentPage === "/doctorreviews" ? "active" : ""), href="/doctorreviews") Manage Reviews
+    li.nav-item.mb-4
+      a.nav-link(class=(currentPage === "/addmedicine" ? "active" : ""), href="/addmedicine") Medicine Management
+    li.nav-item.mb-4
+      a.nav-link(class=(currentPage === "/vieworder" ? "active" : ""), href="/vieworder") View Orders

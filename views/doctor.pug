@@ -1,0 +1,81 @@
+extends base
+
+block content
+  .background-image-container
+    .overlay
+      h1.doctor-name #{doctor.name}
+  .container
+    .row.mt-5
+      .col-md-4
+        img.img-fluid(src='/img/dr-1.jpg' alt="Doctor Image")
+        h3.mt-3.doctor-center-image #{doctor.name}
+        h5.text-muted Consultant #{doctor.Specialization.join(', ')}
+        a.btn.btn-danger.mt-3(href=`/booking?doctorId=${doctor._id}`) 
+          i.fas.fa-calendar-alt.me-2
+          | Book Appointment
+        p.mt-3 For appointment please call
+        p.text-danger 051-8090200
+        p.or To send appointment request use below form.
+      .col-md-8
+        .table-responsive
+          table.table.table-borderless
+            tbody
+              tr
+                th Services
+                td #{doctor.Services.join(', ')}
+              tr
+                th Specialization
+                td #{doctor.Specialization.join(', ')}
+              tr
+                th Wait Time
+                td #{doctor.waitTime} minutes
+              tr
+                th Experience
+                td #{doctor.Experience} years
+              tr
+                th Education
+                td #{doctor.Education.join(', ')}
+              if doctor.ProfessionalMemberships.length
+                tr
+                  th Professional Memberships
+                  td #{doctor.ProfessionalMemberships.join(', ')}
+              tr
+                th Fee
+                td #{doctor.Fee} Rs
+              tr
+                th Ratings
+                td #{doctor.roundedRatingsAvg}/5 (#{doctor.ratingQuantity} reviews)
+              tr
+                th Availability Days
+                td
+                  each day in doctor.AvailabilityDays
+                    span.me-2
+                      i.fas.fa-check-circle.me-1
+                      | #{day}
+              tr
+                th Available Slots
+                td #{doctor.availbleSlots.join('- ')}
+  .container.mt-5
+    h2 Patient Reviews
+    .review-slider
+      if doctor.reviews && doctor.reviews.length > 0
+        each review in doctor.reviews
+          .review
+            p #{review.review}
+            p.mt-2
+              strong #{review.user.email}
+              | , #{review.createdAt.toString().split(' ').slice(0, 4).join(' ')}
+      else 
+        p No Review Available
+    
+    .card.mb-3
+            .card-body
+              h2.card-title Write a Review
+              form#formDoctorReview.submit-Review--form(method="POST")
+                .mb-3
+                  label(for="review") Review
+                  textarea#doctorReviewField.form-control.review-text-form(name="review", rows="3", required)
+                .mb-3
+                  label(for="rating") Rating
+                  input#doctorRatingField.form-control.review-ratimg-form(type="number", name="rating", min="0", max="5", required)
+                button.btn.btn-primary.sumit-doctor-review(type="submit") Submit Review

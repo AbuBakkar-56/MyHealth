@@ -1,0 +1,12 @@
+extends base
+block content
+  .d-flex 
+    include partials/doctor/sidebar
+    .container.mt-5
+      form#enterIdForm(action="/submit-id" method="POST")
+        .form-group
+          label(for='doctorEnteredInputId') Enter your ID
+          input#doctorEnteredInputId.form-control(type='text' name='id' placeholder='Enter your ID' required)
+        button#enterIdFormBtn.btn.btn-primary.mt-3(type='submit') Submit
+
+      .mt-5#doctorInfo

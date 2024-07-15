@@ -1,0 +1,71 @@
+extends base
+
+block content
+  .container.mt-5
+    .row.justify-content-center
+      .col-md-8
+        .card
+          .card-body
+            h2.card-title.text-center Apply as Doctor
+
+            // New Form Starts
+            form#applyDoctorForm(method='POST')
+              .mb-3
+                label(for='applyDoctorName') Name
+                input#applyDoctorName.form-control(type='text', name='name', required='required', placeholder='Enter your name')
+
+              .mb-3
+                label(for='applyDoctorEmail') Email
+                input#applyDoctorEmail.form-control(type='email', name='email', required='required', placeholder='Enter your email')
+
+              .mb-3
+                label(for='applyDoctorSpecialization') Specialization
+                input#applyDoctorSpecialization.form-control(type='text', name='specialization', required='required', placeholder='Enter specialization')
+
+              .mb-3
+                label(for='applyDoctorExperience') Experience
+                input#applyDoctorExperience.form-control(type='number', name='experience', required='required', placeholder='Enter experience in years')
+
+              .mb-3
+                label(for='applyDoctorServices') Services
+                input#applyDoctorServices.form-control(type='text', name='services', required='required', placeholder='Enter services')
+
+              .mb-3
+                label(for='applyDoctorEducation') Education
+                input#applyDoctorEducation.form-control(type='text', name='education', required='required', placeholder='Enter education details')
+
+              .mb-3
+                label(for='applyDoctorAbout') About
+                textarea#applyDoctorAbout.form-control(name='about', required='required', placeholder='Enter a brief about yourself', rows='3')
+
+              .mb-3
+                label(for='applyDoctorFee') Fee
+                input#applyDoctorFee.form-control(type='number', name='fee', required='required', placeholder='Enter consultation fee')
+
+              .mb-3
+                label(for='applyDoctorWaitTime') Wait Time
+                input#applyDoctorWaitTime.form-control(type='number', name='waitTime', required='required', placeholder='Enter wait time in minutes')
+
+              .mb-3
+                label(for='applyDoctorAvailabilityDays') Availability Days
+                input#applyDoctorAvailabilityDays.form-control(type='text', name='availabilityDays', required='required', placeholder='Enter availability days (comma-separated)')
+
+              .mb-3
+                label(for='applyDoctorAvailableSlots') Available Slots
+                input#applyDoctorAvailableSlots.form-control(type='text', name='availableSlots', required='required', placeholder='Enter available slots (comma-separated)')
+
+              .mb-3
+                label(for='applyDoctorCities') Cities
+                input#applyDoctorCities.form-control(type='text', name='cities', required='required', placeholder='Enter cities (comma-separated)')
+
+              .mb-3
+                label(for='applyDoctorHospitals') Available Hospitals
+                input#applyDoctorHospitals.form-control(type='text', name='availbleHospitals', required='required', placeholder='Enter available hospitals (comma-separated)')
+
+              .mb-3
+                label(for='applyDoctorProfessionalStatement') Professional Statement
+                textarea#applyDoctorProfessionalStatement.form-control(name='professionalStatement', required='required', placeholder='Enter your professional statement', rows='3')
+
+              // Submit Button
+              .d-grid
+                button.btn.btn-primary(type='submit') Submit Application

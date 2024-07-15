@@ -1,0 +1,18 @@
+extends base
+block content
+  .d-flex
+    include partials/admin/sidebar
+    .container.mt-5
+      .row.justify-content-center
+        .col-md-8
+          each review in reviews
+            .card.mb-3
+              .card-body
+                h6.card-subtitle.mb-2.text-muted Review Id: #{review.id}
+                h6.card-subtitle.mb-2.text-muted User ID: #{review.user.id}
+                p.card-text User Email: #{review.user.email}
+                p.card-text Doctor ID: #{review.doctor}
+                p.card-text Review: #{review.review}
+                p.card-text Rating: #{review.rating}
+                // Delete Review Button
+                button.btn.btn-danger.delete-review(data-id=review.id) Delete Review

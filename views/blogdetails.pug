@@ -1,0 +1,36 @@
+extends base
+
+block content
+  .container.mt-5
+    .image-header
+      .overlay
+      h1= blog.title
+
+    h5.text-muted.mb-3
+      i.fas.fa-user.text-primary.mr-2
+      = `Author: ${blog.author}`
+    p.lead= blog.Content
+
+    // Form for rating the blog
+    .mt-4.mb-3
+      h3
+        i.fas.fa-star.text-warning.mr-2
+        | Rate This Blog
+      form(id='blogReviewForm', data-blog-id=`${blog._id}`)
+        .form-group
+          label(for='blogReviewComment')
+            i.fas.fa-comment.text-secondary.mr-2
+            | Comment
+          textarea.form-control(name='comment', id='blogReviewComment', rows='3', required)
+        .form-group.mt-3
+          label(for='blogReviewRating')
+            i.fas.fa-star.text-secondary.mr-2
+            | Rating
+          select.form-control(name='rating', id='blogReviewRating', required)
+            option(value='') Select Rating
+            option(value='1') 1
+            option(value='2') 2
+            option(value='3') 3
+            option(value='4') 4
+            option(value='5') 5
+        button.btn.btn-primary.mt-3(type='submit') Submit Review

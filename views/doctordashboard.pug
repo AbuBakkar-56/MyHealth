@@ -1,0 +1,44 @@
+extends base
+
+block content
+  .d-flex
+    include /partials/doctor/sidebar.pug
+    .container-fluid
+      .row
+        .col-md-12
+          h2.mt-4 Doctor Dashboard
+      .row
+        .col-md-3
+          .card.mb-4.shadow-sm
+            .card-body
+              h5 Appointments
+              p#appointmentCount.display-4 20
+        .col-md-3
+          .card.mb-4.shadow-sm
+            .card-body
+              h5 Blogs
+              p#blogCount.display-4 4
+        .col-md-3
+          .card.mb-4.shadow-sm
+            .card-body
+              h5 Reviews
+              p#reviewCount.display-4 10
+        .col-md-3
+          .card.mb-4.shadow-sm
+            .card-body
+              h5 Patients
+              p#patientCount.display-4 20+
+      .row
+        .col-md-6
+          .card.mb-4.shadow-sm
+            .card-body
+              h5 Chart 1
+              canvas#chart1
+        .col-md-6
+          .card.mb-4.shadow-sm
+            .card-body
+              h5 Chart 2
+              canvas#chart2
+      .row
+        .col-md-9.ms-sm-auto.col-lg-10.px-md-4
+          block pageContent

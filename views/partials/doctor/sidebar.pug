@@ -1,0 +1,11 @@
+.col-md-3.col-lg-2.d-md-block.bg-light.sidebar.collapse
+  h4.text-white.bg-dark.p-2 Doctor Dashboard
+  ul.nav.flex-column
+    li.nav-item.mb-4
+      a.nav-link(class=(currentPage === "/doctorinfo" ? "active" : ""), href="/doctorinfo", aria-current="page") Doctor Information
+    li.nav-item.mb-4
+      a.nav-link(class=(currentPage === "/getBookings" ? "active" : ""), href="/getBookings") View Bookings
+    li.nav-item.mb-4
+      a.nav-link(class=(currentPage === "/addBlog" ? "active" : ""), href="/addBlog") Add Blogs
+    li.nav-item.mb-4
+      a.nav-link(class=(currentPage === "/patientHistory" ? "active" : ""), href="/patientHistory") Patient History

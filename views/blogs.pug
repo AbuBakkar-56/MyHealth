@@ -1,0 +1,27 @@
+extends base
+
+block content
+  .container.mt-5
+    h1 Blog Overview
+
+    each blog in blogs
+      if user
+        .blog-card.mb-4
+          .blog-card-image
+            img(src="/img/images.jfif", alt="Blog Image")
+          .blog-card-content
+            .blog-card-header
+              h3= blog.title
+              span.blog-time= `${blog.createAt.toString().split(' ').slice(0, 4).join(' ')}`
+            p.blog-description= blog.Content.substring(0, 120) + '...'
+            .blog-card-actions
+              a.btn.btn-primary.btn--read--more(href=`/blogdetails/${blog._id}`) Read More
+              .blog-icons
+                a(href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com/blogdetails/#{blog._id}" target="_blank")
+                  i.fab.fa-facebook-square
+                a(href="https://twitter.com/intent/tweet?url=https://yourwebsite.com/blogdetails/#{blog._id}" target="_blank")
+                  i.fab.fa-twitter-square
+                a(href="https://www.linkedin.com/shareArticle?mini=true&url=https://yourwebsite.com/blogdetails/#{blog._id}" target="_blank")
+                  i.fab.fa-linkedin
+                a(href="https://pinterest.com/pin/create/button/?url=https://yourwebsite.com/blogdetails/#{blog._id}" target="_blank")
+                  i.fab.fa-pinterest-square

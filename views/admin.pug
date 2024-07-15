@@ -1,0 +1,44 @@
+extends base
+
+block content
+  .d-flex
+    include /partials/admin/sidebar.pug
+    .container-fluid
+      .row
+        .col-md-12
+          h2.mt-4 Admin Dashboard
+      .row
+        .col-md-3
+          .card.mb-4.shadow-sm
+            .card-body
+              h5 Doctors
+              p#doctorCount.display-4 10
+        .col-md-3
+          .card.mb-4.shadow-sm
+            .card-body
+              h5 Reviews
+              p#reviewCount.display-4 50
+        .col-md-3
+          .card.mb-4.shadow-sm
+            .card-body
+              h5 Medicines
+              p#medicineCount.display-4 50
+        .col-md-3
+          .card.mb-4.shadow-sm
+            .card-body
+              h5 Appointments
+              p#orderCount.display-4 600+
+      .row
+        .col-md-6
+          .card.mb-4.shadow-sm
+            .card-body
+              h5 Chart 1
+              canvas#chart1
+        .col-md-6
+          .card.mb-4.shadow-sm
+            .card-body
+              h5 Chart 2
+              canvas#chart2
+      .row
+        .col-md-9.ms-sm-auto.col-lg-10.px-md-4
+          block pageContent

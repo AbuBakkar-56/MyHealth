@@ -1,0 +1,90 @@
+extends base
+
+block content
+  .d-flex 
+    include partials/admin/sidebar
+    .container.mt-5
+      .row.justify-content-center
+        .col-lg-8
+          form(action='/register-doctor', method='POST', enctype='multipart/form-data').bg-light.border.p-3#form-register-doctor
+            h2.mb-3 Register Doctor
+
+            // Name Field
+            .mb-3
+              label(for='doctorName') Name
+              input#doctorName.form-control(type='text', name='name', required='required', minlength='3', maxlength='25')
+
+            // Photo Upload Field
+            
+
+            // Specialization Field (Multiple Selection)
+            .mb-3
+              label(for='doctorSpecialization') Specialization
+              input#doctorSpecialization.form-control(type='text', name='specialization', required='required', placeholder='e.g., Cardiology, Dermatology')
+
+            // Wait Time Field
+            .mb-3
+              label(for='doctorWaitTime') Wait Time
+              input#doctorWaitTime.form-control(type='number', name='waitTime', required='required')
+
+            // Experience Field
+            .mb-3
+              label(for='doctorExperience') Experience (years)
+              input#doctorExperience.form-control(type='number', name='experience', required='required')
+
+            // Services Field (Multiple Selection)
+            .mb-3
+              label(for='doctorServices') Services
+              input#doctorServices.form-control(type='text', name='services', required='required', placeholder='e.g., Consultation, Surgery')
+
+            // Education Field (Multiple Inputs)
+            .mb-3
+              label(for='doctorEducation') Education
+              textarea#doctorEducation.form-control(name='education', required='required' placeholder="eg.,MD in Cardiology,Fellowship in Internal Medicine")
+
+            // Professional Memberships (Multiple Inputs)
+            .mb-3
+              label(for='doctorProfessionalMemberships') Professional Memberships
+              textarea#doctorProfessionalMemberships.form-control(name='professionalMemberships' placeholder="eg., American Heart Association,Internal Medicine Association")
+
+            // About Field
+            .mb-3
+              label(for='doctorAbout') About
+              textarea#doctorAbout.form-control(name='about', required='required')
+
+            // Fee Field
+            .mb-3
+              label(for='doctorFee') Fee
+              input#doctorFee.form-control(type='number', name='fee', required='required')
+
+            // Availability Days (Multiple Selection)
+            .mb-3
+              label(for='doctorAvailableDays') Availability Days
+              input#doctorAvailableDays.form-control(type='text', name='availableDays', required='required', placeholder='e.g., Monday, Tuesday')
+
+            // Available Slots Field (with placeholders)
+            .mb-3
+              label(for='doctorAvailableSlots') Available Slots
+              input#doctorAvailableSlots.form-control(type='text', name='availableSlots', required='required', placeholder='e.g., 7PM, 9PM')
+
+            // Available Cities Field
+            .mb-3
+              label(for='doctorAvailableCities') Available Cities
+              input#doctorAvailableCities.form-control(type='text', name='availableCities', required='required', placeholder='e.g., Karachi, Islamabad')
+
+            // Available Hospitals (Multiple Inputs)
+            .mb-3
+              label(for='doctorAvailableHospitals') Available Hospitals
+              textarea#doctorAvailableHospitals.form-control(name='availableHospitals', required='required',placeholder="eg.,National Hospital,XYZ Hospital")
+
+            // Professional Statement
+            .mb-3
+              label(for='doctorProfessionalStatement') Professional Statement
+              textarea#doctorProfessionalStatement.form-control(name='professionalStatement', required='required')
+
+            // Submit Button
+            button.btn.btn-primary(type='submit') Register
+            .mt-3
+              label(for='Delete Doctor') Delete Doctor
+              input#deleteDoctorId.form-control(type='id')
+              button#doctorDeleteBtn.btn.btn-danger.mt-2(type='submit') Delete Doctor

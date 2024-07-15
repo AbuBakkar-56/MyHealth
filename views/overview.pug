@@ -1,0 +1,38 @@
+extends base
+block content
+  each doctor in doctors
+    if user
+      .container-fluid
+        .row.justify-content-center
+          .col-md-8.mb-5
+            .card(style="width: 60vw;")
+              .card-body.d-flex.flex-column.align-items-start
+                .d-flex.align-items-center.mb-3
+                  img.card-img-top.rounded-circle(src="img/dr-1.jpg" alt="Card image cap" style="width: 100px; height: 100px; margin-right: 20px;")
+                  h2.card-title #{doctor.name}
+                .d-flex.mb-3.justify-content-center
+                  h5.card-text.text-body-secondary.me-4
+                    i.fas.fa-money-bill-wave.me-2
+                    | Fee: #{doctor.Fee} Rs
+                  h5.card-text.text-body-secondary.me-4.doctor-wait-time
+                    i.fas.fa-clock.me-2
+                    | Wait Time: #{doctor.waitTime} Mints
+                .d-flex.flex-wrap
+                  each edu, index in doctor.Education
+                    if index < 1
+                      p.card-text.text-body-secondary.me-4.doctor-education.mb-3
+                        i.fas.fa-graduation-cap.me-2
+                        | #{edu}
+                .d-flex.flex-wrap
+                  each speciality, index in doctor.Specialization
+                    if index < 1
+                      p.card-text.text-body-secondary.me-4.mb-3
+                        i.fas.fa-stethoscope.me-2
+                        | #{speciality}
+                h5.card-text.text-body-secondary
+                  i.fas.fa-star.me-2
+                  | Ratings: #{doctor.ratingsAvg.toFixed(2)}/5 (#{doctor.ratingQuantity})
+                div.mt-auto.d-flex.justify-content-between.align-items-center
+                  a.btn.btn-primary(href=`/booking?doctorId=${doctor._id}`) Book Appointment
+                  span(style="margin-left:40px;")
+                    a.btn.btn-info(href=`/doctor/${doctor.id}`) Get Details

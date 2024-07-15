@@ -1,0 +1,11 @@
+extends base 
+block content 
+ .medicine-container
+      .medicine-card
+        img(src="/img/mediciness.jpg" alt="Medicine Image" class="medicine-image")
+        .company-tag
+          i(class="fas fa-industry")
+          span Nation Pharmaceutical Ltd
+        .medicine-description 
+          h4 Description
+          p= medicine.description

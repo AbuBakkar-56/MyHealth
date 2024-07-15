@@ -1,0 +1,33 @@
+extends base
+
+block content
+  .container.mt-5
+    .row.justify-content-center
+      .col-lg-8
+        h2 Book Appointment
+        p Choose from the available days and slots below:
+
+        ul
+          each day in availabilityDays
+            li= day
+
+        ul
+          each slot in availableSlots
+            li= slot.slot
+
+        form#bookDoctorAppointmentForm(action='/submit-booking', method='POST')
+          input(type='hidden', name='doctorId', value=doctorId)
+
+          .form-group
+            label(for='bookingDay') Enter Booking Day
+            select#bookingDay.form-control(name='bookingDay', required='required')
+              each day in availabilityDays
+                option(value=day)= day
+
+          .form-group
+            label(for='bookingSlot') Enter Available Slot
+            select#bookingSlot.form-control(name='bookingSlot', required='required')
+              each slot in availableSlots
+                  option(value=slot.slot, disabled=slot.booked)= slot.slot
+                
+          button.btn.btn-primary.mt-3(type='submit') Submit
